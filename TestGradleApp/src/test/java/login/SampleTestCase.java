@@ -14,4 +14,9 @@ public class SampleTestCase {
 	public void test_sample_assert_two() {
 		Assert.assertEquals(1, 1);
 	}
+	
+	@Test
+	public void test_negative_case() {
+		Assert.assertNull(new String("World !"));
+	}
 }
