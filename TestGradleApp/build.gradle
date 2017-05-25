@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'sonar-runner'
 group = 'TestApp'
 version = '1.0.0-SNAPSHOT'
 description = 'My test application using Gradle'
@@ -17,4 +18,15 @@ dependencies {
     testCompile 'info.cukes:cucumber-java:1.2.0'
     testCompile 'info.cukes:cucumber-junit:1.2.0'
     compile 'org.mockito:mockito-all:1.10.19'
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '3.0'
+}
+
+sonarRunner {
+	sonarProperties {
+		property "sonar.projectName", "Test Application"
+		property "sonar.projectKey", "org.sonarqube:java-gradle-simple"
+	}
 }
